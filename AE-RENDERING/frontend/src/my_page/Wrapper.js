@@ -55,7 +55,6 @@ class Wrapper extends React.Component{
         axios.get(url, config)
         .then(resp => {
             let videoPlayer = document.getElementById("video1");
-            // $("#video1").attr("src", window.URL.createObjectURL(resp.data));
             videoPlayer.setAttribute('src', window.URL.createObjectURL(resp.data))
         });
     }
@@ -131,7 +130,7 @@ class Wrapper extends React.Component{
            })
         })
     }
-    /*functions about popconfirm*/
+    /*functions about popconfirm and AE generation*/
     setVisible = (t)=>{
         this.setState({
             popVisible:t
@@ -157,6 +156,7 @@ class Wrapper extends React.Component{
         setTimeout(()=>{
             this.setVisible(false)
             this.setLoading(false)
+            this.startGenerate()
         },2000)
         setTimeout(()=>{
             message.success("渲染成功！")
@@ -167,6 +167,24 @@ class Wrapper extends React.Component{
 
     handleCancel = ()=>{
         this.setVisible(false)
+    }
+
+    startGenerate = ()=>{
+        axios.get('/api/getToken/').then(res => {
+            let csrf_token = res.data.token
+            //console.log(csrf_token)
+            window.sessionStorage.setItem("csrf_token", csrf_token)
+           })
+        const data={data:this.state.data, type:this.state.chartType}
+        axios({
+            url: '/api/generateAE/',
+            method: 'post',
+            data: data,
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'X-CSRFToken': window.sessionStorage.getItem("csrf_token")
+            }
+          })
     }
     /* */
 
