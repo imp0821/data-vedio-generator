@@ -7,8 +7,8 @@ class SideBar extends React.Component{
                 <nav>
                 <ul>
                     <li><a href="#intro">Renderer</a></li>
-                    <li><a href="#one">Who we are</a></li>
-                    <li><a href="#two">What we do</a></li>
+                    <li><a href="#one">Chart selection</a></li>
+                    <li><a href="#two">How to use</a></li>
                     <li><a href="#three">Get in touch</a></li>
                 </ul>
                 </nav>

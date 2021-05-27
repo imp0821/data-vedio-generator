@@ -16,7 +16,7 @@ function tagRender(props) {
         onMouseDown={onPreventMouseDown}
         closable={closable}
         onClose={onClose}
-        style={{ marginRight: 3 }}
+        style={{ width:50, marginRight: 3 }}
       >
         {label}
       </Tag>
@@ -40,10 +40,9 @@ class ColorSelector extends React.Component{
         if(this.state.inputName== ""){
         return(
             <Select
-                mode="multiple"
                 showArrow
                 tagRender={tagRender}
-                style={{ width: '100%',height:'100%'}}
+                style={{ width: 20,height:'100%'}}
                 defaultValue={['1']}
                 value ={this.state.value}
                 onChange={this.handleColorChange}
@@ -59,13 +58,13 @@ class ColorSelector extends React.Component{
             </Select>
         )}else{
             return(
-                <Row>
-                    <Col span={8}>
+                <Row   >
+                    <Col span={24} >
                         <Select
                         mode="multiple"
                         showArrow
                         tagRender={tagRender}
-                        style={{ width: '100%' }}
+                        style={{ width: 100 }}
                         defaultValue={['1']}
                         value ={this.state.value}
                         onChange={this.handleColorChange}
@@ -80,7 +79,7 @@ class ColorSelector extends React.Component{
                         <Option style={{ backgroundColor: "rgb(94,191,204)" }} value='6'>color6</Option> 
                         </Select>
                     </Col>
-                    <Col span={4}>
+                    <Col span={12}>
                         <label>{this.state.inputName}</label>
                     </Col>
             </Row>

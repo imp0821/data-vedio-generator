@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import { Pie } from '@antv/g2plot';
 import {Chart} from '@antv/g2'
 import {DataSet} from '@antv/data-set'
 
@@ -15,7 +14,6 @@ function PieChart (props)  {
     }
     // const sum=data[0].value+data[1].value+data[2].value+data[3].value;
     let sum = 0;
-    console.log(data)
     for(let i=0;i<data.length;i++){
       sum += data[i].value;
     }

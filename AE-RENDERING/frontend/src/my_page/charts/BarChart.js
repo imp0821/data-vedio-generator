@@ -3,7 +3,7 @@ import {Column} from '@antv/g2plot'
 
 function BarChart (props)  {
   const data = props.chartData;
-  console.log(data)
+  // console.log(data)
   const container = useRef(null);
 
   useEffect(() => {
